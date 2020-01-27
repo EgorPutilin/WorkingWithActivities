@@ -1,6 +1,7 @@
 package com.example.fragments_and_viewmodels;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.lifecycle.ViewModelProviders;
 
@@ -11,7 +12,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     private TextView txtText;
-    private  MainViewmodel mainViewmodel;
+    private MainViewmodel mainViewmodel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +21,20 @@ public class MainActivity extends AppCompatActivity {
         //initialize MainViewmodel
         mainViewmodel = ViewModelProvider.AndroidViewModelFactory.getInstance(getApplication()).create(MainViewmodel.class);
         txtText = findViewById(R.id.txtText);
-        txtText.setText("Some text: count" + mainViewmodel.getCount("Some text"));
+        //txtText.setText("Some text: count" + mainViewmodel.getCount("Some text"));
+        mainViewmodel.getCount("Some text");
+        mainViewmodel.count.observe(this, new Observer<Integer>() {
+            @Override
+            public void onChanged(Integer count) {
+                setText(count);
+            }
+        });
+
         Log.d("Lifecycle", "onCreate");
+    }
+
+    private void setText(int count) {
+        txtText.setText("Some text: count" + count);
     }
 
     @Override

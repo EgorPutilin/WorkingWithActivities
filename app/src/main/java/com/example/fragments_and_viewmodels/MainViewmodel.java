@@ -1,9 +1,13 @@
 package com.example.fragments_and_viewmodels;
 
+import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
 public class MainViewmodel extends ViewModel {
-    int getCount(String s) {
-        return s.length();
+
+    public MutableLiveData<Integer> count = new MutableLiveData<>();
+
+    public void getCount(String s) {
+        count.postValue(s.length());
     }
 }
