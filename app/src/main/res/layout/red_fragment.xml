@@ -3,8 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F20216B4"
-    tools:context=".ui.fragments.MainFragment">
+    android:background="#8A0A0A"
+    tools:context=".ui.fragments.RedFragment">
 
     <TextView
         android:layout_width="match_parent"

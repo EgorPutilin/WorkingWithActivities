@@ -5,9 +5,9 @@ import androidx.lifecycle.ViewModel;
 
 public class MainViewmodel extends ViewModel {
 
-    public MutableLiveData<Integer> count = new MutableLiveData<>();
+    //public MutableLiveData<Integer> count = new MutableLiveData<>();
 
     public void getCount(String s) {
-        count.postValue(s.length());
+        //count.postValue(s.length());
     }
 }
